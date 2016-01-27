@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "CyanogenMod",
+    "repository": "android_kernel_huawei_angler",
+    "target_path": "kernel/huawei/angler",
+    "revision": "cm-13.0"
+  },
+  {
+    "remote": "tm",
+    "repository": "proprietary_vendor_huawei",
+    "target_path": "vendor/huawei",
+    "revision": "cm-13.0"
+  }
+]
