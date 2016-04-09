@@ -176,7 +176,11 @@ PRODUCT_PACKAGES += \
     libmmcamera_interface2 \
     libmmjpeg_interface \
     libqomx_core \
-    mm-qcamera-app
+    mm-qcamera-app \
+    Snap
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.cpp.duplication=false
 
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
@@ -343,6 +347,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # low audio flinger standby delay to reduce power consumption
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.audio.flinger_standbytime_ms=300
+
+# Enable speaker calibration
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.speaker.prot.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.restart_level="ALL_ENABLE"
