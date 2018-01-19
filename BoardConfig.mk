@@ -145,6 +145,9 @@ TARGET_USES_INTERACTION_BOOST := true
 
 TARGET_RECOVERY_UI_LIB := librecovery_ui_nanohub
 
+# Use Snapdragon LLVM, if available
+TARGET_USE_SDCLANG := true
+
 # Force camera module to be compiled only in 32-bit mode on 64-bit systems
 # Once camera module can run in the native mode of the system (either
 # 32-bit or 64-bit), the following line should be deleted
