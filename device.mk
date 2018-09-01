@@ -255,6 +255,9 @@ PRODUCT_PACKAGES += \
     libmmjpeg_interface \
     libqomx_core
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false
 
