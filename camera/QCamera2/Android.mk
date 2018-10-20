@@ -38,7 +38,7 @@ LOCAL_SRC_FILES += \
         HAL/QCameraParameters.cpp \
         HAL/QCameraThermalAdapter.cpp
 
-LOCAL_CFLAGS := -Wall -Wextra -Werror
+LOCAL_CFLAGS := -Wall -Wextra -Wno-error
 LOCAL_CFLAGS += -DHAS_MULTIMEDIA_HINTS
 LOCAL_CFLAGS += -DENABLE_MODEL_INFO_EXIF
 
