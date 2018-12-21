@@ -140,8 +140,8 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
-    # Wifi firmware reload path
-    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+    # Use the group Wi-Fi Direct interface on bcm43xx
+    setprop wifi.direct.interface p2p-dev-wlan0
 
     # WebView
     chmod 0755 /sys/kernel/debug/tracing
