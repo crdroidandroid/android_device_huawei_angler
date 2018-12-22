@@ -312,7 +312,8 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     NfcNci \
     Tag \
-    android.hardware.nfc@1.1-service
+    nfc_nci.msm8994 \
+    android.hardware.nfc@1.0-impl \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
