@@ -250,8 +250,7 @@ PRODUCT_PACKAGES += \
     libmmcamera_interface2 \
     libmmjpeg_interface \
     libqomx_core \
-    mm-qcamera-app \
-    Snap
+    mm-qcamera-app
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false
