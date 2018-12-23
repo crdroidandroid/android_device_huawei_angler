@@ -194,8 +194,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+# DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service
 
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
