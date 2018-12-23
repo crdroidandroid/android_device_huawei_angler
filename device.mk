@@ -218,14 +218,19 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessingdescriptors \
     libqcompostprocbundle
 
+# OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libstagefrighthw \
-    libOmxCore \
     libmm-omxcore \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVdecHevc \
-    libOmxVenc
+    libOmxVenc \
+    libstagefrighthw
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
