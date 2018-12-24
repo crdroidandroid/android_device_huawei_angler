@@ -154,6 +154,9 @@ TARGET_USE_SDCLANG := true
 # 32-bit or 64-bit), the following line should be deleted
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
 # Wifi related defines
 BOARD_WLAN_DEVICE           := bcmdhd
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
