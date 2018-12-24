@@ -190,6 +190,10 @@ PRODUCT_PACKAGES += \
     lights.angler \
     android.hardware.light@2.0-impl
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@1.0-service-legacymm
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
