@@ -184,8 +184,6 @@ TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
 DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 
-PRODUCT_USE_VNDK_OVERRIDE := false
-
 -include vendor/huawei/angler/BoardConfigVendor.mk
 
 # Legacy blob support
