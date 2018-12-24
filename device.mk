@@ -249,8 +249,7 @@ PRODUCT_PACKAGES += \
     libmmcamera_interface \
     libmmcamera_interface2 \
     libmmjpeg_interface \
-    libqomx_core \
-    mm-qcamera-app
+    libqomx_core
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false
