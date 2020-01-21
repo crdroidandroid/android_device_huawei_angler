@@ -19,7 +19,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.eis.enable=1 \
-    persist.camera.is_type=4
+    persist.camera.is_type=4 \
+    persist.camera.cpp.duplication=false
 
 # Dalvik VM
 PRODUCT_PROPERTY_OVERRIDES += \
