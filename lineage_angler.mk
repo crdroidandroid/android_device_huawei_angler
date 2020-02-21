@@ -1,3 +1,4 @@
+#
 # Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2017 The LineageOS Project
 #
@@ -12,15 +13,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-# Sample: This is where we'd set a backup provider if we had one
-# $(call inherit-product, device/sample/products/backup_overlay.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from the common product configuration
-$(call inherit-product, device/huawei/angler/aosp_angler.mk)
+# Inherit from angler device
+$(call inherit-product, device/huawei/angler/device.mk)
 
 # Inherit some common Lineage stuff
-$(call inherit-product, $(TOPDIR)vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Screen Resolution for the Bootanimation
 TARGET_SCREEN_HEIGHT := 2560

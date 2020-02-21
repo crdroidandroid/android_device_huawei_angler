@@ -19,36 +19,38 @@
 #
 # Everything in this directory will become public
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
+
 # Enable support for chinook sensorhub
 TARGET_USES_CHINOOK_SENSORHUB := false
 
 PRODUCT_SHIPPING_API_LEVEL := 23
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.angler.rc:root/init.angler.rc \
-    device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
-    device/huawei/angler/fstab.angler:root/fstab.angler \
-    device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
+    device/huawei/angler/rootdir/etc/init.angler.rc:root/init.angler.rc \
+    device/huawei/angler/rootdir/etc/init.angler.usb.rc:root/init.angler.usb.rc \
+    device/huawei/angler/rootdir/etc/fstab.angler:root/fstab.angler \
+    device/huawei/angler/rootdir/etc/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/init.recovery.angler.rc:root/init.recovery.angler.rc \
-    device/huawei/angler/init.angler.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.angler.power.sh \
     device/huawei/angler/uinput-fpc.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/uinput-fpc.kl \
-    device/huawei/angler/uinput-fpc.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/uinput-fpc.idc \
-    device/huawei/angler/init.qcom.devwait.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devwait.sh \
-    device/huawei/angler/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh
+    device/huawei/angler/uinput-fpc.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/uinput-fpc.idc
+
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/rootdir/bin/init.angler.power.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.angler.power.sh \
+    device/huawei/angler/rootdir/bin/init.angler.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.angler.qseecomd.sh \
+    device/huawei/angler/rootdir/bin/init.mcfg.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.mcfg.sh \
+    device/huawei/angler/rootdir/bin/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh \
+    device/huawei/angler/rootdir/bin/init.qcom.devwait.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devwait.sh \
+    device/huawei/angler/rootdir/bin/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh
+
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc
+    device/huawei/angler/rootdir/etc/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc
 else
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.angler.nanohub.rc:root/init.angler.sensorhub.rc
+    device/huawei/angler/rootdir/etc/init.angler.nanohub.rc:root/init.angler.sensorhub.rc
 endif
-
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.mcfg.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.mcfg.sh
-
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh
 
 # Thermal configuration
 PRODUCT_COPY_FILES += \
@@ -96,18 +98,18 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+    device/huawei/angler/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # System Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/bcmdhd.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd.cal \
-    device/huawei/angler/bcmdhd-pme.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd-pme.cal \
-    device/huawei/angler/bcmdhd-high.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd-high.cal \
-    device/huawei/angler/bcmdhd-low.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd-low.cal \
-    device/huawei/angler/filter_ie:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/filter_ie
+    device/huawei/angler/configs/bcmdhd.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd.cal \
+    device/huawei/angler/configs/bcmdhd-pme.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd-pme.cal \
+    device/huawei/angler/configs/bcmdhd-high.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd-high.cal \
+    device/huawei/angler/configs/bcmdhd-low.cal:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/bcmdhd-low.cal \
+    device/huawei/angler/configs/filter_ie:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/filter_ie
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -153,11 +155,7 @@ $(call inherit-product, device/huawei/angler/utils.mk)
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
-
-# Qseecomd configuration file
-PRODUCT_COPY_FILES += \
-    device/huawei/angler/init.angler.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.angler.qseecomd.sh
+    device/huawei/angler/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -323,7 +321,7 @@ PRODUCT_PACKAGES += \
 
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/configs/privapp-permissions-angler.xml:system/etc/permissions/privapp-permissions-angler.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-angler.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-angler.xml
 
 # Power HAL
 PRODUCT_PACKAGES += \
@@ -396,7 +394,7 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf:qcom
+    device/huawei/angler/configs/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf:qcom
 
 # services for encryption
 PRODUCT_PACKAGES += \
@@ -413,3 +411,5 @@ $(call add-product-sanitizer-module-config,mm-qcamera-daemon,never)
 # b/36201281
 $(call add-product-sanitizer-module-config,thermal-engine,never)
 $(call add-product-sanitizer-module-config,qmuxd,never)
+
+$(call inherit-product, vendor/huawei/angler/device-vendor.mk)
