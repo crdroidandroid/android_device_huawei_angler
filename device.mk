@@ -336,7 +336,7 @@ $(LOCAL_PATH)/configs/privapp-permissions-angler.xml:system/etc/permissions/priv
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.angler
+    android.hardware.power@1.2-service-qti
 
 # Thermal HAL
 PRODUCT_PACKAGES += \
