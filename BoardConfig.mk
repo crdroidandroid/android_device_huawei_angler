@@ -33,7 +33,7 @@ TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 # Inline kernel building
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
-TARGET_KERNEL_CONFIG := angler_defconfig
+TARGET_KERNEL_CONFIG := lineageos_angler_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
 
