@@ -69,12 +69,6 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     dsm_ctrl
 
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.soundtrigger@2.0-impl
-
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Audio effects
@@ -86,14 +80,10 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.device@3.2-impl \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
     camera.msm8994 \
     libcamera \
     libmmcamera_interface \
@@ -108,23 +98,11 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.graphics.mapper@2.0-service \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
     gralloc.msm8994 \
     hwcomposer.msm8994 \
     libgenlock \
     libtinyxml \
     memtrack.msm8994
-
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
 
 # Filesystem
 # For android_filesystem_config.h
@@ -133,13 +111,10 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint Sensor
 PRODUCT_PACKAGES += \
-    fingerprint.angler \
-    android.hardware.biometrics.fingerprint@2.1-service
+    fingerprint.angler
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service \
     gatekeeper.msm8994
 
 # GPS
@@ -147,16 +122,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf:qcom
 
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service \
     gps.msm8994 \
     libgps.utils \
     libgnss \
     liblocation_api
 
-# Health HAL
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.angler
+# HIDL
+$(call inherit-product, $(LOCAL_PATH)/hidl.mk)
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -211,15 +183,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/synaptics_dsx.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/synaptics_dsx.idc \
     $(LOCAL_PATH)/configs/uinput-fpc.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/uinput-fpc.idc
 
-# Keymaster HAL
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
-
-# Lights
- PRODUCT_PACKAGES += \
-     android.hardware.light@2.0-service.angler
-
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs.xml \
@@ -237,7 +200,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nxp.conf
 
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service \
     com.android.nfc_extras \
     NfcNci \
     Tag
@@ -264,7 +226,6 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS := \
     $(LOCAL_PATH)/overlay
-
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -306,10 +267,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.vulkan.version.xml
 
-# Power HAL
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti
-
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-angler.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-angler.xml
@@ -322,16 +279,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-angler.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/thermal-engine.conf
 
 PRODUCT_PACKAGES += \
-    thermal.angler \
-    android.hardware.thermal@2.0-service.mock
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
-
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
+    thermal.angler
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -348,10 +296,7 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 
 PRODUCT_PACKAGES += \
     sensors.angler \
-    activity_recognition.angler \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl.nanohub \
-    android.hardware.contexthub@1.0-service
+    activity_recognition.angler
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
@@ -362,16 +307,8 @@ PRODUCT_PACKAGES += \
     nanoapp_cmd
 endif
 
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
 # Utils
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -382,7 +319,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/filter_ie:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/filter_ie
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
     libwpa_client \
     hostapd \
     wlutil \
