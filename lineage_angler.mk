@@ -37,11 +37,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
     PRIVATE_BUILD_DESC="angler-user 8.1.0 OPM7.181205.001 5080180 release-keys"
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/angler/angler:8.1.0/OPM7.181205.001/5080180:user/release-keys
-
 BUILD_FINGERPRINT := google/angler/angler:8.1.0/OPM7.181205.001/5080180:user/release-keys
-
-# Lineage Updater
-PRODUCT_PROPERTY_OVERRIDES += \
-    lineage.updater.uri=https://raw.githubusercontent.com/PixelBoot/Lineage-OTA/lineage-17.1/angler.json
