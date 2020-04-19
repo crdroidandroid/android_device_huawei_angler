@@ -67,13 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_large_cache_width=2048 \
     ro.hwui.text_large_cache_height=1024
 
-# Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.early_phase_offset_ns=1500000 \
-    debug.sf.early_app_phase_offset_ns=1500000 \
-    debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=0 \
@@ -128,11 +121,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=2048 \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
-    ro.surface_flinger.protected_contents=true \
-    ro.surface_flinger.set_display_power_timer_ms=10000 \
-    ro.surface_flinger.set_touch_timer_ms=5000 \
-    ro.surface_flinger.set_idle_timer_ms=9000
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
 # Telephony
 PRODUCT_PROPERTY_OVERRIDES += \
