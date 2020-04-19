@@ -40,4 +40,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
     PRIVATE_BUILD_DESC="angler-user 8.1.0 OPM7.181205.001 5080180 release-keys"
 
-BUILD_FINGERPRINT := google/angler/angler:8.1.0/OPM7.181205.001/5080180:user/release-keys
+BUILD_FINGERPRINT := google/coral/coral:10/QQ2A.200405.005/6254899:user/release-keys
