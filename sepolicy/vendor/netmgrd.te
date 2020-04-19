@@ -8,7 +8,7 @@ init_daemon_domain(netmgrd)
 net_domain(netmgrd)
 allowxperm netmgrd self:udp_socket ioctl priv_sock_ioctls;
 
-allow netmgrd self:capability { setuid setgid net_admin net_raw sys_module setpcap };
+allow netmgrd self:capability { setuid setgid net_admin net_raw sys_module setpcap  sys_admin };
 
 set_prop(netmgrd, net_radio_prop)
 
@@ -53,10 +53,8 @@ allow netmgrd proc_net:dir r_dir_perms;
 
 qmux_socket(netmgrd)
 
-userdebug_or_eng(`
-    allow netmgrd shared_log_device:chr_file rw_file_perms;
-    allow netmgrd diag_device:chr_file rw_file_perms;
-')
+allow netmgrd shared_log_device:chr_file rw_file_perms;
+allow netmgrd diag_device:chr_file rw_file_perms;
 
 # execute toybox/toolbox
 allow netmgrd toolbox_exec:file rx_file_perms;

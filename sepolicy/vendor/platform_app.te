@@ -1,3 +1,5 @@
+permissive platform_app;
+
 userdebug_or_eng(`
    # qxdmlogger rundiag perms
    allow platform_app diag_logs:dir create_dir_perms;
